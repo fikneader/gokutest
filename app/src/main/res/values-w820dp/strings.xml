@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="bg_view">bg_view</string>
+    <string name="logo_text">logo_text</string>
+    <string name="logo_splash">logo_splash</string>
+</resources>

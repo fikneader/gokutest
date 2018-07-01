@@ -1,0 +1,194 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.ulin.gokutest.IngredientsActivity"
+    android:background="@mipmap/bg_main_blurred_more"
+    android:gravity="center_horizontal">
+
+    <!-- Search -->
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:src="@mipmap/btn_back76"
+            android:onClick="toMenu"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="11dp"
+            android:layout_marginStart="11dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextSearch"
+            android:background="@mipmap/ic_search_bg"
+            android:hint="@string/find_ingredient"
+            android:enabled="true"
+            android:paddingLeft="30dp"
+            android:editable="true"
+            android:paddingRight="30dp"
+            android:inputType="text"
+            android:lines="1"
+            android:maxLength="50"
+            android:singleLine="true"
+            android:typeface="sans"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonSearch"
+            android:src="@mipmap/ic_search"
+            android:background="#00000000"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="toggleSearch" />
+
+    </RelativeLayout>
+
+    <!-- Slide jenis bahan -->
+    <LinearLayout
+        android:id="@+id/layoutCategory"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/btnPrevCategory"
+            android:src="@drawable/button_arrow_left"
+            android:background="#00000000"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center"
+            android:onClick="prevCategory"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textViewCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="UTAMA"
+                android:layout_gravity="center"
+                android:textColor="#ffffffff"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+        </FrameLayout>
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/btnNextCategory"
+            android:src="@drawable/button_arrow_right"
+            android:background="#00000000"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center"
+            android:onClick="nextCategory" />
+    </LinearLayout>
+
+    <!-- Content -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@mipmap/bg_ingredient_top">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="220dp"
+                android:layout_height="50dp"
+                android:background="@mipmap/bg_selected"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/picked_menu"
+                    android:id="@+id/textViewSelected"
+                    android:layout_gravity="center"
+                    android:textSize="16sp"
+                    android:onClick="viewSelected" />
+
+                <TextView
+                    android:id="@+id/textViewSelectedCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="0"
+                    android:layout_gravity="center"
+                    android:paddingLeft="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingRight="10dp"
+                    android:paddingEnd="10dp"
+                    android:onClick="viewSelected"/>
+
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/buttonNext"
+                    android:src="@drawable/next"
+                    android:scaleType="fitCenter"
+                    android:background="#00000000"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:onClick="commitCategory" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/bg_ingredient"
+            android:paddingLeft="8dp"
+            android:paddingStart="8dp"
+            android:paddingRight="7dp"
+            android:paddingEnd="7dp" >
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/scrollView"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="-21dp"
+                android:layout_marginRight="-21dp">
+
+                <LinearLayout
+                    android:id="@+id/layoutList"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
